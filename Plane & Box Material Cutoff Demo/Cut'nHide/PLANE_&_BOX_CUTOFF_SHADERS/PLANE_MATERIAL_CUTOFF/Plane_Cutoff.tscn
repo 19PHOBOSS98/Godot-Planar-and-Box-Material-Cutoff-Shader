@@ -1,0 +1,97 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/TEXTURES/texture_11 copy.png" type="Texture" id=1]
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/PLANE_MATERIAL_CUTOFF/Plane_material_cutoff_shaders/Glow_cutoff_plane.tres" type="Shader" id=2]
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/TEXTURES/texture_10.png" type="Texture" id=3]
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/PLANE_MATERIAL_CUTOFF/Plane_material_cutoff_shaders/Glow_dissolve_cutoff_plane.tres" type="Shader" id=4]
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/PLANE_MATERIAL_CUTOFF/Plane_material_cutoff_shaders/Fire_dissolve_cutoff_plane.tres" type="Shader" id=5]
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/PLANE_MATERIAL_CUTOFF/Plane_material_cutoff_shaders/testing_back_coloring.tres" type="Shader" id=6]
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/PLANE_MATERIAL_CUTOFF/Plane_material_cutoff_shaders/Simple_cutoff_plane_VISUAL_SHADER.tres" type="Shader" id=7]
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/PLANE_MATERIAL_CUTOFF/Plane_material_cutoff_shaders/Simple_cutoff_plane_SHADER_CODE.shader" type="Shader" id=8]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 7 )
+shader_param/Portal_Rotation = Vector3( 0, 0, -45 )
+shader_param/Portal_Origin = Vector3( 0, -1.018, 0 )
+shader_param/TextureUniform = ExtResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 8 )
+shader_param/passing_thru = true
+shader_param/Portal_Global_Origin = Vector3( 0, -1.018, 0 )
+shader_param/Portal_Rotation = Vector3( 0, 0, -45 )
+shader_param/texture_here = ExtResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 2 )
+shader_param/Inside_Color = Color( 0.858824, 0.188235, 0.0352941, 1 )
+shader_param/smoothstep_error = false
+shader_param/Portal_Rotation = Vector3( 0, 0, -45 )
+shader_param/Portal_Origin = Vector3( 0, -1.018, 0 )
+shader_param/Edge_color = Color( 0, 1, 0.741176, 1 )
+shader_param/Edge_Thickness = 0.286
+shader_param/TextureUniform = ExtResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 4 )
+shader_param/Inside_color = Color( 0, 0.811765, 1, 1 )
+shader_param/Portal_Rotation = Vector3( 0, 0, -45 )
+shader_param/Portal_Origin = Vector3( 0, 0, 0 )
+shader_param/edge_color = Color( 1, 0.494118, 0, 1 )
+shader_param/Edge_thickness = 0.152
+shader_param/TextureUniform = ExtResource( 3 )
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 2, 5, 2 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 5 )
+shader_param/Inside_color = Color( 0.94902, 0.678431, 0.0313726, 1 )
+shader_param/zoom_in_noise = 1.0
+shader_param/Portal_Rotation = Vector3( 0, 0, -45 )
+shader_param/Portal_Origin = Vector3( 0, 0, 0 )
+shader_param/edge_color = Color( 0.92549, 0.392157, 0.00392157, 1 )
+shader_param/Edge_thickness = 0.092
+shader_param/TextureUniform = ExtResource( 3 )
+
+[sub_resource type="PlaneMesh" id=8]
+size = Vector2( 15, 15 )
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 6 )
+shader_param/back = Color( 1, 1, 1, 1 )
+shader_param/front = null
+
+[node name="plane_cutoff_effect" type="Spatial"]
+
+[node name="SIMPLE_CUTOFF_VS" type="MeshInstance" parent="."]
+transform = Transform( 0.68414, 0.729351, 0, 0.548674, -0.514663, -0.658847, -0.480531, 0.450744, -0.752277, -3.8974, 2.69257, 0.40413 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="SIMPLE_CUTOFF_SC" type="MeshInstance" parent="."]
+transform = Transform( 0.68414, 0.729351, 0, 0.548674, -0.514663, -0.658847, -0.480531, 0.450744, -0.752277, -3.8974, 1.88422, 4.25647 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
+
+[node name="GLOW_CUTOFF" type="MeshInstance" parent="."]
+transform = Transform( -0.543671, 0.267807, -0.795425, -0.0180769, -0.951242, -0.307912, -0.839103, -0.153024, 0.522004, -2.089, 0.479712, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+
+[node name="GLOW_DISSOLVE" type="MeshInstance" parent="."]
+transform = Transform( 0.855525, -0.0495559, 0.515383, 0.297085, 0.862227, -0.410248, -0.424048, 0.50409, 0.75238, 0.631764, -2.00714, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+
+[node name="FIRE_DISSOLVE" type="MeshInstance" parent="."]
+transform = Transform( -0.1521, 0.93398, -0.323337, -0.987784, -0.154856, 0.0173471, -0.0338689, 0.322026, 0.946125, 2.70664, -4.37579, 0 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="DA_PLANE" type="MeshInstance" parent="."]
+transform = Transform( 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0, -1.018, 0 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )

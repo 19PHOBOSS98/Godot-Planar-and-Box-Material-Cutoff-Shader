@@ -1,0 +1,285 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/BOX_MATERIAL_CUTOFF/Cube_Material_cutoff_shaders/Box_material_cutoff_texture.tres" type="Shader" id=1]
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/BOX_MATERIAL_CUTOFF/Cube_Material_cutoff_shaders/Box_material_cutoff_color.tres" type="Shader" id=2]
+[ext_resource path="res://CUT'nHide/PLANE_&_BOX_CUTOFF_SHADERS/TEXTURES/texture_11 copy.png" type="Texture" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 10, 10, 10 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/Color = Color( 0.756863, 0, 1, 1 )
+shader_param/size = Vector3( 60, 60, 60 )
+shader_param/field_origin = null
+shader_param/Field_Rotation = null
+
+[sub_resource type="SphereMesh" id=3]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 2 )
+shader_param/Color = Color( 1, 0.376471, 0, 1 )
+shader_param/size = Vector3( 30, 30, 30 )
+shader_param/field_origin = null
+shader_param/Field_Rotation = null
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 5, 5, 5 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 2 )
+shader_param/Color = Color( 0, 0.133333, 1, 1 )
+shader_param/size = Vector3( 10, 10, 10 )
+shader_param/field_origin = Vector3( 0, 0, 0 )
+shader_param/Field_Rotation = null
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 3, 3, 3 )
+
+[sub_resource type="SpatialMaterial" id=8]
+params_cull_mode = 2
+params_depth_draw_mode = 3
+albedo_color = Color( 0, 1, 0.0862745, 1 )
+emission_enabled = true
+emission = Color( 0.196078, 1, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="Animation" id=9]
+resource_name = "mev"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -40 ), Vector3( -40, 0, -40 ), Vector3( 35, 0, 35 ), Vector3( 0, 0, 0 ), Vector3( 5, 0, -5 ), Vector3( 0, 0, -10 ), Vector3( -15, 0, 0 ), Vector3( 0, 0, 30 ), Vector3( 40, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../platform:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -30, 0 ), Vector3( 0, -30, 30 ), Vector3( 30, -30, 30 ), Vector3( -30, -30, -30 ), Vector3( 0, -30, 0 ), Vector3( -14, -30, 14 ), Vector3( 0, -30, 28 ), Vector3( 28, -30, 0 ), Vector3( 0, -30, -28 ), Vector3( -28, -30, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../platform:material/0:shader_param/Field_Rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 720, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../platform/hidingsideb:material/0:shader_param/Field_Rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 720, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../invisibility field:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 720, 0 ) ]
+}
+
+[sub_resource type="CylinderMesh" id=10]
+top_radius = 50.0
+bottom_radius = 50.0
+height = 50.0
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 1 )
+shader_param/size = Vector3( 60, 60, 60 )
+shader_param/field_origin = null
+shader_param/Field_Rotation = Vector3( 0, 0, 0 )
+shader_param/TextureUniform = ExtResource( 3 )
+
+[sub_resource type="CylinderMesh" id=12]
+top_radius = 48.0
+bottom_radius = 48.0
+height = 45.0
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 2 )
+shader_param/Color = Color( 1, 0.584314, 0, 1 )
+shader_param/size = Vector3( 60, 60, 60 )
+shader_param/field_origin = null
+shader_param/Field_Rotation = Vector3( 0, 0, 0 )
+
+[sub_resource type="CylinderMesh" id=14]
+top_radius = 30.0
+bottom_radius = 30.0
+height = 40.0
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = ExtResource( 2 )
+shader_param/Color = Color( 0.0392157, 0.427451, 0.976471, 1 )
+shader_param/size = Vector3( 30, 30, 50 )
+shader_param/field_origin = null
+shader_param/Field_Rotation = null
+
+[sub_resource type="CylinderMesh" id=16]
+top_radius = 29.5
+bottom_radius = 29.5
+height = 39.0
+
+[sub_resource type="ShaderMaterial" id=17]
+shader = ExtResource( 2 )
+shader_param/Color = Color( 1, 0.984314, 0, 1 )
+shader_param/size = Vector3( 30, 30, 50 )
+shader_param/field_origin = null
+shader_param/Field_Rotation = null
+
+[sub_resource type="CubeMesh" id=18]
+size = Vector3( 20, 30.5, 20 )
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = ExtResource( 2 )
+shader_param/Color = Color( 1, 0, 0, 1 )
+shader_param/size = Vector3( 30, 10, 10 )
+shader_param/field_origin = null
+shader_param/Field_Rotation = Vector3( 0, 0, 0 )
+
+[sub_resource type="CubeMesh" id=20]
+size = Vector3( 19, 30, 19 )
+
+[sub_resource type="ShaderMaterial" id=21]
+shader = ExtResource( 2 )
+shader_param/Color = Color( 1, 0.985685, 0.985685, 1 )
+shader_param/size = Vector3( 30, 10, 10 )
+shader_param/field_origin = null
+shader_param/Field_Rotation = null
+
+[sub_resource type="CubeMesh" id=22]
+size = Vector3( 60, 60, 60 )
+
+[sub_resource type="SpatialMaterial" id=23]
+flags_transparent = true
+albedo_color = Color( 1, 0.913725, 0, 0.0392157 )
+
+[sub_resource type="CubeMesh" id=24]
+size = Vector3( 30, 30, 30 )
+
+[sub_resource type="SpatialMaterial" id=25]
+flags_transparent = true
+albedo_color = Color( 0.243137, 1, 0, 0.160784 )
+
+[sub_resource type="CubeMesh" id=26]
+size = Vector3( 10, 10, 10 )
+
+[sub_resource type="SpatialMaterial" id=27]
+flags_transparent = true
+albedo_color = Color( 0.00784314, 0, 1, 0.239216 )
+
+[sub_resource type="CubeMesh" id=28]
+size = Vector3( 30, 10, 10 )
+
+[sub_resource type="SpatialMaterial" id=29]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.160784 )
+
+[node name="INVISIBLE CUBES" type="Spatial"]
+__meta__ = {
+"_editor_description_": "Inviso_Cubes"
+}
+
+[node name="object" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="object"]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="object"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="object"]
+transform = Transform( 0.707107, 0.707107, 0, -0.575667, 0.575666, -0.580703, -0.410619, 0.410619, 0.814116, 0, 0, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="object"]
+autoplay = "mev"
+anims/mev = SubResource( 9 )
+
+[node name="platform" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
+
+[node name="hidingsideb" type="MeshInstance" parent="platform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.939449, 0 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )
+
+[node name="hiding2" type="MeshInstance" parent="platform/hidingsideb"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16279, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
+[node name="hiding2SIDEB" type="MeshInstance" parent="platform/hidingsideb/hiding2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.382359, 0 )
+mesh = SubResource( 16 )
+material/0 = SubResource( 17 )
+
+[node name="hiding3" type="MeshInstance" parent="platform"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 15.119, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="hiding3sideb" type="MeshInstance" parent="platform/hiding3"]
+mesh = SubResource( 20 )
+material/0 = SubResource( 21 )
+
+[node name="invisibility field" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 22 )
+material/0 = SubResource( 23 )
+
+[node name="invisibility field2" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 24 )
+material/0 = SubResource( 25 )
+
+[node name="invisibility field3" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 26 )
+material/0 = SubResource( 27 )
+
+[node name="invisibility field4" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 28 )
+material/0 = SubResource( 29 )
